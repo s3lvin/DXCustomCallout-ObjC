@@ -1,15 +1,16 @@
 {
   "name": "DXCustomCallout-ObjC",
   "version": "0.1.0",
-  "summary": "A short description of DXCustomCallout-ObjC.",
-  "description": "                       An optional longer description of DXCustomCallout-ObjC\n\n                       * Markdown format.\n                       * Don't worry about the indent, we strip it!\n",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/DXCustomCallout-ObjC",
+  "summary": "A simpler approach to CustomCallouts on MKMapview",
+  "description": "DXAnnotationView takes a PinView and a CalloutView as UIViews and beautifully displays it in MKMapView. It is;\n                       * Easy to use\n                       * Highly configurable\n",
+  "homepage": "https://github.com/s3lvin/DXCustomCallout-ObjC",
+  "screenshots": "http://s26.postimg.org/68lrdhei1/i_OS_Simulator_Screen_Shot_13_Apr_2015_1_02_35_am.png",
   "license": "MIT",
   "authors": {
     "s3lvin": "mariaselvin@gmail.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/DXCustomCallout-ObjC.git",
+    "git": "https://github.com/s3lvin/DXCustomCallout-ObjC.git",
     "tag": "0.1.0"
   },
   "platforms": {
@@ -17,9 +18,8 @@
   },
   "requires_arc": true,
   "source_files": "Pod/Classes/**/*",
-  "resource_bundles": {
-    "DXCustomCallout-ObjC": [
-      "Pod/Assets/*.png"
-    ]
-  }
+  "frameworks": [
+    "UIKit",
+    "MapKit"
+  ]
 }

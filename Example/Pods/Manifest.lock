@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  DXCustomCallout-ObjC: 410a826d76f64311bafd89f4bc606dd60dc207d8
+  DXCustomCallout-ObjC: 325e49ec051af01a70f1d0992790f05b51fff6ce
 
 COCOAPODS: 0.36.3
