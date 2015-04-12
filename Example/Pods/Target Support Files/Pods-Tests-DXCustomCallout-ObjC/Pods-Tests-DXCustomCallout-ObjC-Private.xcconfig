@@ -1,0 +1,6 @@
+#include "Pods-Tests-DXCustomCallout-ObjC.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/DXCustomCallout-ObjC" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/DXCustomCallout-ObjC"
+OTHER_LDFLAGS = -ObjC
+PODS_ROOT = ${SRCROOT}
+SKIP_INSTALL = YES
