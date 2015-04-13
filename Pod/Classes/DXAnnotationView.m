@@ -45,6 +45,9 @@
         [self addSubview:self.calloutView];
         self.frame = [self calculateFrame];
         if (_hasCalloutView) {
+            if (self.settings.shouldAddCalloutBorder) {
+                [self addCalloutBorder];
+            }
             if (self.settings.shouldRoundifyCallout) {
                 [self roundifyCallout];
             }
@@ -69,9 +72,12 @@
 }
 
 - (void)roundifyCallout {
+    self.calloutView.layer.cornerRadius = self.settings.calloutCornerRadius;
+}
+
+- (void)addCalloutBorder {
     self.calloutView.layer.borderWidth = self.settings.calloutBorderWidth;
     self.calloutView.layer.borderColor = self.settings.calloutBorderColor.CGColor;
-    self.calloutView.layer.cornerRadius = self.settings.calloutCornerRadius;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -85,7 +91,6 @@
                 [self hideCalloutView];
             }
         } else if (touch.view == self.calloutView) {
-            // do nothing
             [self showCalloutView];
         } else {
             [self hideCalloutView];

@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "DXCustomCallout-ObjC"
-  s.version          = "0.1.0"
+  s.version          = "0.2.0"
   s.summary          = "A simpler approach to CustomCallouts on MKMapview"
   s.description      = <<-DESC
 DXAnnotationView takes a PinView and a CalloutView as UIViews and beautifully displays it in MKMapView. It is;
