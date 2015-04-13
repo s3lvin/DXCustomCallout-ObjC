@@ -11,7 +11,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Screenshot
 
-![DXCustomCallout](http://s26.postimg.org/68lrdhei1/i_OS_Simulator_Screen_Shot_13_Apr_2015_1_02_35_am.png)
+![DXCustomCallout](http://s26.postimg.org/5utm5d961/Callout.gif)
 
 ## Requirements
 
