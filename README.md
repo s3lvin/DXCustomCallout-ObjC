@@ -9,12 +9,53 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+You can return a `DXAnnotationView` from 
+
+    - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+
+ method.
+
+First create your pinview and calloutview
+
+    UIView *pinView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pin"]];
+    UIView *calloutView = [[[NSBundle mainBundle] loadNibNamed:@"myView" owner:self options:nil] firstObject];
+
+Then you create your custom annotation view as shown below.
+
+    DXAnnotationView *annotationView = (DXAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:NSStringFromClass([DXAnnotationView class])];
+        if (!annotationView) {
+            annotationView = [[DXAnnotationView alloc] initWithAnnotation:annotation
+                                                          reuseIdentifier:NSStringFromClass([DXAnnotationView class])
+                                                                  pinView:pinView
+                                                              calloutView:calloutView
+                                                                 settings:[DXAnnotationSettings defaultSettings]];
+        }
+        return annotationView;
+
+#### Configuring additional settings for your custom callout
+
+`DXAnnotationView` has customizable look and feel. You can configure the settings by passing your own `DXAnnotationSettings` in to `DXAnnotationView` while initializing it.
+
+    DXAnnotationSettings *newSettings = [[DXAnnotationSettings alloc] init];
+    newSettings.calloutOffset = <#your calloutoffset#>;
+
+    newSettings.shouldRoundifyCallout = <#YES to make the calloutview with corner radius#>;
+    newSettings.calloutCornerRadius = <#your callout view's corner radius. applied only if shouldRoundifyCallout is YES#>;
+
+    newSettings.shouldAddCalloutBorder = <#YES to add border for your custom callout#>;
+    newSettings.calloutBorderColor = <#your callout view's border color#>;
+    newSettings.calloutBorderWidth = <#your callout view's border width#>;
+
+    newSettings.animationType = <#DXCalloutAnimation type#>;
+    newSettings.animationDuration = <#DXCalloutAnimation duration#>;
+
 ## Screenshot
 
 ![DXCustomCallout](http://s26.postimg.org/5utm5d961/Callout.gif)
 
 ## Requirements
-
+  iOS 7 or above & ARC
+  
 ## Installation
 
 DXCustomCallout-ObjC is available through [CocoaPods](http://cocoapods.org). To install
@@ -27,6 +68,8 @@ pod "DXCustomCallout-ObjC"
 ## Author
 
 s3lvin, mariaselvin@gmail.com
+
+Pull requests are welcome!
 
 ## License
 
