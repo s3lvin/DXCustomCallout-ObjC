@@ -50,6 +50,16 @@ Then you create your custom annotation view as shown below.
 
     newSettings.animationType = <#DXCalloutAnimation type#>;
     newSettings.animationDuration = <#DXCalloutAnimation duration#>;
+    
+#### Making sure the size of your custom view doesn't grow bigger
+
+1. Disable Autolayout for your custom callout view for a moment
+2. Remove the FexibleWidth and Flexible height AutoResizingMasks from your custom callout view
+3. Re enable Autolayout if needed
+
+![step1](https://cloud.githubusercontent.com/assets/6522274/9212655/824323b0-40a8-11e5-9004-a95cb0f8b6f8.jpg)
+![step2](https://cloud.githubusercontent.com/assets/6522274/9212656/82434c64-40a8-11e5-9276-b63e8515bc80.jpg)
+
 
 ## Screenshot
 
