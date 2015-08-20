@@ -11,6 +11,9 @@
 
 @interface DXAnnotationView : MKAnnotationView
 
+@property(nonatomic, strong) UIView *pinView;
+@property(nonatomic, strong) UIView *calloutView;
+
 - (instancetype)initWithAnnotation:(id<MKAnnotation>)annotation
                    reuseIdentifier:(NSString *)reuseIdentifier
                            pinView:(UIView *)pinView
