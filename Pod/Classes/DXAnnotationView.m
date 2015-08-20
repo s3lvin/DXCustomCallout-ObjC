@@ -13,8 +13,6 @@
     BOOL _hasCalloutView;
 }
 
-@property(nonatomic, strong) UIView *pinView;
-@property(nonatomic, strong) UIView *calloutView;
 @property(nonatomic, strong) DXAnnotationSettings *settings;
 
 @end
@@ -189,6 +187,44 @@
     BOOL isCallout = (CGRectContainsPoint(self.calloutView.frame, point));
     BOOL isPin = (CGRectContainsPoint(self.pinView.frame, point));
     return isCallout || isPin;
+}
+
+#pragma mark - PinView
+
+- (void)setPinView:(UIView *)pinView {
+    //Removing old pinView
+    [_pinView removeFromSuperview];
+    
+    //Adding new pinView to the view's hierachy
+    _pinView = pinView;
+    [self addSubview:_pinView];
+    
+    //Position the new pinView
+    self.frame = [self calculateFrame];
+    self.pinView.center = self.center;
+}
+
+- (void)setCalloutView:(UIView *)calloutView {
+    //Removing old calloutView
+    [_calloutView removeFromSuperview];
+    
+    //Adding new calloutView to the view's hierachy
+    _calloutView = calloutView;
+    [self addSubview:_calloutView];
+    
+    self.calloutView.hidden = YES;
+    
+    //Adding Border
+    if (_hasCalloutView) {
+        if (self.settings.shouldAddCalloutBorder) {
+            [self addCalloutBorder];
+        }
+        if (self.settings.shouldRoundifyCallout) {
+            [self roundifyCallout];
+        }
+    }
+    [self positionSubviews];
+    
 }
 
 @end
